@@ -1,13 +1,12 @@
-# axion-test
+# Axion test – API + Front-end
 Este projeto foi desenvolvido como parte do desafio técnico proposto pela Axion, com o objetivo de avaliar habilidades técnicas, organização de código, capacidade de aprendizado e abordagem na resolução de problemas por meio da construção de uma aplicação web integrada a uma API REST.
 
-## Visão Geral
-
-A aplicação consiste em um sistema web desenvolvido com Next.js que consome uma API criada em Strapi. O projeto implementa autenticação de usuário, controle de sessão, proteção de rotas e listagem dinâmica de conteúdos.
-O layout foi construído com base no protótipo fornecido no desafio, buscando fidelidade visual e organização estrutural.
+## Estrutura do Projeto
+axion-teste/       (API construída com Strapi)
+axion-frontend/    (Front-end)
 
 ## Funcionalidades
-- Autenticação via endpoint /auth/local
+- Autenticação integrada ao Strapi
 - Armazenamento de token JWT
 - Controle de sessão no front-end
 - Proteção de rotas autenticadas
@@ -17,39 +16,50 @@ O layout foi construído com base no protótipo fornecido no desafio, buscando f
   - People
   - Places
 - Ordenação crescente e decrescente no front-end
-- Layout estruturado com componente reutilizável de header
 - Estilização modular utilizando CSS Modules
 
 ## Tecnologias Utilizadas
-- Next.js
-- React
-- Strapi (Headless CMS)
+### Back-end (Strapi)
 - Node.js
+- Strapi
+- SQLite (banco de dados local)
+
+Os objetos estarão no formato:
+
+{
+  "name": "Nome do item",
+  "link": "URL da imagem"
+}
+Estes links só funcionarão caso o servidor esteja rodando.
+
+### Front-end
+- React
+- Next.js
 - CSS Modules
-- JWT (JSON Web Token)
+- JWT para autenticação
 
-## Estrutura do Projeto
-A aplicação foi organizada priorizando separação de responsabilidades, reutilização de componentes e manutenção facilitada.
 
+## Como Executar o Projeto Localmente
+1. Clonar o Repositório
 ```bash
-src/
- ├── app/
- ├── components/
- ├── styles/
-public/
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
 ```
 
-Principais conceitos aplicados:
-- Componentização
-- Layout compartilhado (AppShell)
-- Consumo centralizado de API
-- Organização modular de estilos
-- Estrutura clara e escalável
+2. Iniciar o Back-end
+```bash 
+cd axion-test
+npm install
+npm run build
+npm run develop
+```
 
-## Execução do Projeto
-Front-end
+O servidor estará disponível em:
+`http://localhost:1337`
 
+3. Iniciar o Front-end
 ```bash
+cd ../axion-frontend
 npm install
 npm run dev
 ```
@@ -57,5 +67,36 @@ npm run dev
 A aplicação estará disponível em:
 `http://localhost:3000`
 
-Back-end
-O back-end foi disponibilizado pela Axion por meio de um projeto Strapi e deve estar rodando localmente na porta 1337.
+## Login
+Faça login com as seguintes credenciais: 
+
+E-mail: axioner@axion.company
+Senha: Axioner123
+
+## Layout
+Layout do protótipo para o teste: MarvelApp
+
+Códigos em hexa das cores utilizadas no layout:
+```bash
+#4A4A4A
+#AE23A9
+#DC4E1B
+#9B9B9B
+#FFFFFF
+#F9F9F9
+```
+
+A fonte usada no layou: [Open Sans – Google Fonts](https://fonts.google.com/specimen/Open+Sans)
+
+## Recursos Visuais
+
+As pastas imgs e assets estão disponíveis no link: https://bit.ly/3oIQyCC
+
+## Observações Técnicas
+
+Os dados estão todos salvos em um banco local SQLite que já se comunica com a API, portanto não é necessário se preocupar com essa parte.
+
+## Considerações Adicionais
+
+Foi implementado um botão de logout para controle explícito de sessão, também foi adicionado um botão de ordenação crescente e decrescente nas listas.
+A imagem de background utilizada no layout apresenta leve perda de qualidade, pois foi necessário remover o fundo da imagem original fornecida para adequação ao design.
